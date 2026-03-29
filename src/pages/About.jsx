@@ -4,7 +4,7 @@ function About() {
       id: 1,
       name: "Ahmad Shanti",
       role: "General Project Coordinator",
-      image: "src/assets/ahmad shanti.jpg",
+      image: "team/ahmad-shanti.jpg",
      description: <p>
        Supporting the development of practical solutions for challenges faced during the project
 Contributing to building and programming the initial version of the website and the electronic platform
@@ -20,7 +20,7 @@ Ensuring that project tasks are completed according to the planned timeline
       id: 2,
       name: "Rima Djelloul",
       role: "General Supervisor of the Environment Tracking System Project",
-      image: "src/assets/rima.jpg",
+      image: "team/rima.jpg",
       description: <p>
         Defining the project scope
 Monitoring the quality of work of the Environment Tracking System project
