@@ -1,23 +1,36 @@
-export const mockReadings = [
+const mockReadings = [
   {
     id: 1,
-    temperature: 28,
+    temperature: 22,
     humidity: 55,
-    status: "Normal",
-    time: "2026-03-29 10:00 AM",
+    location: "Nablus City Center",
+    status: "safe",
+    date: "2026-03-29 09:00 AM",
   },
   {
     id: 2,
-    temperature: 36,
-    humidity: 70,
-    status: "Warning",
-    time: "2026-03-29 11:30 AM",
+    temperature: 30,
+    humidity: 60,
+    location: "Industrial Area",
+    status: "warning",
+    date: "2026-03-29 11:30 AM",
   },
   {
     id: 3,
-    temperature: 31,
-    humidity: 60,
-    status: "Normal",
-    time: "2026-03-29 01:15 PM",
+    temperature: 39,
+    humidity: 42,
+    location: "Near Main Road",
+    status: "danger",
+    date: "2026-03-29 02:15 PM",
+  },
+  {
+    id: 4,
+    temperature: 24,
+    humidity: 50,
+    location: "University Zone",
+    status: "safe",
+    date: "2026-03-29 04:00 PM",
   },
 ];
+
+export default mockReadings;

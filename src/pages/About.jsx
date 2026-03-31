@@ -1,113 +1,121 @@
+import Navbar from "../components/Navbar";
+
+
 function About() {
   const teamMembers = [
     {
       id: 1,
       name: "Ahmad Shanti",
       role: "General Project Coordinator",
-      image: "team/ahmad-shanti.jpg",
-     description: <p>
-       Supporting the development of practical solutions for challenges faced during the project
-Contributing to building and programming the initial version of the website and the electronic platform
-Assisting the project supervisor in organizing tasks and following up on progress
-Coordinating between team members to ensure smooth workflow and communication
-Participating in improving system functionality and user experience during development
-Helping in testing the system and fixing basic issues in early stages
-Providing technical support when needed and contributing to overall project improvement
-Ensuring that project tasks are completed according to the planned timeline
-      </p>,
-       },
+      image: "team/ahmad shanti.jpg",
+      emoji: "👨‍💻",
+      description: "Supporting the development of practical solutions, building and programming the platform, coordinating between team members, and ensuring smooth workflow and communication.",
+    },
     {
       id: 2,
       name: "Rima Djelloul",
-      role: "General Supervisor of the Environment Tracking System Project",
+      role: "General Supervisor",
       image: "team/rima.jpg",
-      description: <p>
-        Defining the project scope
-Monitoring the quality of work of the Environment Tracking System project
-Ensuring the coordination and integration of the technologies used in the project
-Preparing periodic reports on the role of the system in managing environmental affairs, and sending text and non-text messages to other applications such as Facebook and Instagram
-Organizing training sessions provided by the project to raise awareness among individuals about climate change
-Identifying all potential risks that the project may face during environmental crises
-Evaluating performance quality
-      </p>,
+      emoji: "👩‍🔬",
+      description: "Defining the project scope, monitoring quality, ensuring coordination of technologies, preparing periodic reports, and evaluating performance quality.",
     },
   ];
 
+  const technologies = [
+    { icon: "⚛️", name: "React" },
+    { icon: "⚡", name: "Vite" },
+    { icon: "🔀", name: "React Router" },
+    { icon: "🎨", name: "CSS3" },
+    { icon: "🟨", name: "JavaScript" },
+    { icon: "🗺️", name: "Leaflet Maps" },
+    { icon: "🔥", name: "Firebase" },
+  ];
+
   return (
-    <>
-      <section className="page-section about-grid">
+    <div className="app">
+      <Navbar />
+
+      <div className="page-hero card" style={{ marginBottom: "24px", padding: "28px 34px" }}>
+        <span className="section-label">🌿 About</span>
+        <h1 style={{ fontSize: "2rem", color: "#fff", margin: "10px 0 8px" }}>Environmental Tracking System</h1>
+        <p style={{ color: "#b9c9de", maxWidth: "700px", lineHeight: 1.8 }}>
+          A smart web-based platform designed to monitor temperature and humidity across different locations,
+          supporting environmental awareness and sustainable development.
+        </p>
+      </div>
+
+      <section className="about-grid" style={{ marginBottom: "24px" }}>
         <div className="card about-card">
           <div className="section-heading">
-            <span className="section-label">Project Overview</span>
-            <h2>About This System</h2>
-            <p>
-              This environmental tracking system is a simple web-based project
-              designed to monitor temperature and humidity values.
-            </p>
+            <span className="section-label">🎯 Goal</span>
+            <h2>Why This Project Matters</h2>
           </div>
-
           <p className="about-text">
-            The system allows users to add environmental readings manually,
-            display the latest values on a dashboard, review historical records,
-            and generate basic reports. It helps show how software can be used
-            to monitor environmental conditions in a simple and practical way.
+            This project demonstrates how digital systems can support environmental awareness and sustainable
+            development. By tracking environmental data across different locations, the system helps detect
+            potential risks, monitor changes, and support better decision-making for healthier communities.
           </p>
         </div>
 
         <div className="card about-card">
           <div className="section-heading">
-            <span className="section-label">Technologies</span>
+            <span className="section-label">🛠️ Technologies</span>
             <h2>Tools Used</h2>
           </div>
-
-          <ul className="about-list">
-            <li>React</li>
-            <li>Vite</li>
-            <li>React Router</li>
-            <li>CSS3</li>
-            <li>JavaScript</li>
-          </ul>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop: "8px" }}>
+            {technologies.map((tech, i) => (
+              <span key={i} style={{
+                background: "rgba(59,130,246,0.12)",
+                border: "1px solid rgba(96,165,250,0.2)",
+                borderRadius: "999px",
+                padding: "8px 14px",
+                color: "#93c5fd",
+                fontSize: "0.9rem",
+                fontWeight: 600,
+              }}>
+                {tech.icon} {tech.name}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="card about-card">
           <div className="section-heading">
-            <span className="section-label">Goal</span>
-            <h2>Why This Project Matters</h2>
+            <span className="section-label">🌱 Sustainability</span>
+            <h2>Supporting Sustainable Development</h2>
           </div>
-
           <p className="about-text">
-            This project demonstrates how digital tools can support
-            environmental awareness and data monitoring. Even as a simple
-            prototype, it reflects the idea of collecting data, tracking
-            changes, and supporting better decision-making.
+            The system contributes to sustainable development goals by enabling real-time environmental monitoring,
+            reducing risks through early detection, and empowering communities with data-driven insights to make
+            better environmental decisions.
           </p>
         </div>
       </section>
 
       <section className="team-section">
-        <div className="section-badge">Team</div>
-        <h2>Project Team</h2>
-        <p className="team-intro">
-          This project was developed through the efforts of the following team
-          members.
-        </p>
+        <span className="section-label">👥 Team</span>
+        <h2 style={{ color: "#fff", fontSize: "1.6rem", margin: "12px 0 8px" }}>Project Team</h2>
+        <p className="team-intro">This project was developed through the efforts of the following team members.</p>
 
         <div className="team-grid">
           {teamMembers.map((member) => (
             <div className="team-card" key={member.id}>
-              <img
-                src={member.image}
-                alt={member.name}
-                className="team-image"
-              />
-              <h3>{member.name}</h3>
-              <span className="team-role">{member.role}</span>
-              <p>{member.description}</p>
-            </div>
+  <img
+    src={member.image}
+    alt={member.name}
+    className="team-image"
+    onError={(e) => {
+      e.target.style.display = "none";
+    }}
+  />
+  <h3>{member.name}</h3>
+  <span className="team-role">{member.role}</span>
+  <p>{member.description}</p>
+</div>
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

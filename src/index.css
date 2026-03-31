@@ -14,6 +14,7 @@ body {
   font-family: Arial, sans-serif;
   background: #07111f;
 }
+
 .team-section {
   margin-top: 32px;
   padding: 30px;
@@ -30,7 +31,7 @@ body {
 }
 
 .team-grid {
-  display: grid-;
+  display: grid; /* ✅ إصلاح: كانت grid- */
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   margin-top: 20px;
@@ -77,4 +78,11 @@ body {
   color: #cbd5e1;
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 26px;
 }

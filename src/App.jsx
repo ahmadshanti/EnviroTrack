@@ -1,40 +1,51 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { db } from "./firebase";
+import { ref, onValue, push } from "firebase/database";
 import Dashboard from "./pages/Dashboard";
+import About from "./pages/About";
 import History from "./pages/History";
 import Reports from "./pages/Reports";
-import About from "./pages/About";
-import { mockReadings } from "./data/mockReadings";
-import "./App.css";
+import Login from "./pages/Login";
+import './App.css';
 
 function App() {
-  const [readings, setReadings] = useState(mockReadings || []);
+  const [readings, setReadings] = useState([]);
+
+  useEffect(() => {
+    const readingsRef = ref(db, "readings");
+    onValue(readingsRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const loaded = Object.entries(data).map(([id, val]) => ({
+          id,
+          ...val,
+        }));
+        setReadings(loaded);
+      }
+    });
+  }, []);
 
   const handleAddReading = (newReading) => {
-    setReadings((prev) => [...prev, newReading]);
+    const readingsRef = ref(db, "readings");
+    push(readingsRef, newReading);
   };
 
   return (
     <BrowserRouter>
-      <div className="app">
-        <div className="background-glow bg-one"></div>
-        <div className="background-glow bg-two"></div>
-
-        <Navbar />
-
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Dashboard readings={readings} onAddReading={handleAddReading} />
-            }
-          />
-          <Route path="/history" element={<History readings={readings} />} />
-          <Route path="/reports" element={<Reports readings={readings} />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/dashboard"
+          element={
+            <Dashboard readings={readings} onAddReading={handleAddReading} />
+          }
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/history" element={<History readings={readings} />} />
+        <Route path="/reports" element={<Reports readings={readings} />} />
+      </Routes>
     </BrowserRouter>
   );
 }
