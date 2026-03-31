@@ -7,6 +7,7 @@ import About from "./pages/About";
 import History from "./pages/History";
 import Reports from "./pages/Reports";
 import Login from "./pages/Login";
+import Tips from "./pages/Tips";
 import './App.css';
 
 function App() {
@@ -45,6 +46,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/history" element={<History readings={readings} />} />
         <Route path="/reports" element={<Reports readings={readings} />} />
+        <Route path="/tips" element={<Tips />} />
+
       </Routes>
     </BrowserRouter>
   );
