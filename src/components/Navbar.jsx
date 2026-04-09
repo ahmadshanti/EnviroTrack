@@ -4,7 +4,6 @@ function Navbar() {
   const navigate = useNavigate();
 
   const username = localStorage.getItem("username");
-  const regNumber = localStorage.getItem("registrationNumber");
 
   const handleLogout = () => {
     localStorage.clear();
@@ -37,7 +36,7 @@ function Navbar() {
   </div>
   <div className="user-info">
     <span className="user-name">{username}</span>
-    <span className="user-id">{regNumber}</span>
+
   </div>
   <button className="logout-btn" onClick={handleLogout}>
     Logout

@@ -19,6 +19,15 @@ function About() {
       emoji: "👩‍🔬",
       description: "Defining the project scope, monitoring quality, ensuring coordination of technologies, preparing periodic reports, and evaluating performance quality.",
     },
+
+   {
+  id: 3,
+  name: "Ayoub Guidara",
+  role: "Data & Research Analyst",
+  image: "team/Ayoub.jpg",
+  emoji: "📊",
+  description: "Assisting in data collection and analysis, supporting research activities, and contributing to documentation and initial testing phases of the platform.",
+},
   ];
 
   const technologies = [

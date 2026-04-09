@@ -3,17 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState("");
-  const [registrationNumber, setRegistrationNumber] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!username || !registrationNumber) return;
+    if (!username ) return;
 
     localStorage.setItem("username", username);
-    localStorage.setItem("registrationNumber", registrationNumber);
-
     navigate("/dashboard");
   };
 
@@ -23,8 +20,7 @@ function Login() {
         <span className="section-label">Welcome</span>
         <h1>Environmental Tracking System</h1>
         <p>
-          Enter your name and registration number to access the monitoring
-          dashboard.
+         Enter your name or a display name — this will appear on the monitoring dashboard.
         </p>
 
         <form onSubmit={handleSubmit} className="login-form">
@@ -38,15 +34,7 @@ function Login() {
             />
           </div>
 
-          <div className="form-group">
-            <label>Registration Number</label>
-            <input
-              type="text"
-              value={registrationNumber}
-              onChange={(e) => setRegistrationNumber(e.target.value)}
-              placeholder="Enter your registration number"
-            />
-          </div>
+
 
           <button type="submit">Continue</button>
         </form>
