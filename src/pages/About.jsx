@@ -1,6 +1,5 @@
 import Navbar from "../components/Navbar";
 
-
 function About() {
   const teamMembers = [
     {
@@ -19,15 +18,14 @@ function About() {
       emoji: "👩‍🔬",
       description: "Defining the project scope, monitoring quality, ensuring coordination of technologies, preparing periodic reports, and evaluating performance quality.",
     },
-
-   {
-  id: 3,
-  name: "Ayoub Guidara",
-  role: "Data & Research Analyst",
-  image: "team/Ayoub.jpg",
-  emoji: "📊",
-  description: "Assisting in data collection and analysis, supporting research activities, and contributing to documentation and initial testing phases of the platform.",
-},
+    {
+      id: 3,
+      name: "Ayoub Guidara",
+      role: "Data & Research Analyst",
+      image: "team/Ayoub.jpg",
+      emoji: "📊",
+      description: "Assisting in data collection and analysis, supporting research activities, and contributing to documentation and initial testing phases of the platform.",
+    },
   ];
 
   const technologies = [
@@ -38,6 +36,51 @@ function About() {
     { icon: "🟨", name: "JavaScript" },
     { icon: "🗺️", name: "Leaflet Maps" },
     { icon: "🔥", name: "Firebase" },
+  ];
+
+  const impacts = [
+    {
+      icon: "🌿",
+      label: "Environmental Impact",
+      title: "Monitoring Our Environment",
+      description:
+        "EnviroTrack helps keep an eye on basic but important environmental factors like temperature and humidity in real time. This makes it easier to notice unusual changes early and raises awareness about how our environment is evolving.",
+    },
+    {
+      icon: "💰",
+      label: "Economic Impact",
+      title: "Reducing Unnecessary Costs",
+      description:
+        "By providing timely environmental data, the platform can help reduce costs linked to damage or poor planning — like heat-related risks, infrastructure stress, or energy inefficiency. Better information leads to better decisions.",
+    },
+    {
+      icon: "🏛️",
+      label: "Policy & Governance Impact",
+      title: "Supporting Decision-Makers",
+      description:
+        "The data collected by EnviroTrack gives decision-makers a clearer picture of local environmental conditions — useful for planning, regulations, and managing environmental issues in a more evidence-based way.",
+    },
+    {
+      icon: "🤝",
+      label: "Social Impact",
+      title: "Raising Community Awareness",
+      description:
+        "When data is easy to access and understand, it encourages communities to care more about environmental changes and act more responsibly. EnviroTrack makes environmental data approachable for everyone.",
+    },
+    {
+      icon: "📚",
+      label: "Educational & Research Impact",
+      title: "A Real Learning Tool",
+      description:
+        "EnviroTrack is useful for students and researchers to work with real data, connect theory to practice, and better understand how environmental monitoring systems work in real life.",
+    },
+    {
+      icon: "💻",
+      label: "Technological Impact",
+      title: "Modern Tech for Real Solutions",
+      description:
+        "The project shows how modern web tools like React and Firebase can be used to build practical, real-world solutions — a small but clear example of how digital technology can support sustainability.",
+    },
   ];
 
   return (
@@ -109,21 +152,50 @@ function About() {
         <div className="team-grid">
           {teamMembers.map((member) => (
             <div className="team-card" key={member.id}>
-  <img
-    src={member.image}
-    alt={member.name}
-    className="team-image"
-    onError={(e) => {
-      e.target.style.display = "none";
-    }}
-  />
-  <h3>{member.name}</h3>
-  <span className="team-role">{member.role}</span>
-  <p>{member.description}</p>
-</div>
+              <img
+                src={member.image}
+                alt={member.name}
+                className="team-image"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                }}
+              />
+              <h3>{member.name}</h3>
+              <span className="team-role">{member.role}</span>
+              <p>{member.description}</p>
+            </div>
           ))}
         </div>
       </section>
+
+      {/* ===== IMPACT SECTION ===== */}
+      <section style={{ marginTop: "40px" }}>
+        <span className="section-label">🌍 Impact</span>
+        <h2 style={{ color: "#fff", fontSize: "1.6rem", margin: "12px 0 8px" }}>
+          The Real-World Impact of EnviroTrack
+        </h2>
+        <p style={{ color: "#b9c9de", marginBottom: "24px", lineHeight: 1.8 }}>
+          Beyond tracking data, EnviroTrack creates meaningful value across multiple areas of life.
+        </p>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: "20px",
+        }}>
+          {impacts.map((item, i) => (
+            <div key={i} className="card" style={{ padding: "24px" }}>
+              <div style={{ fontSize: "2rem", marginBottom: "10px" }}>{item.icon}</div>
+              <span className="section-label" style={{ marginBottom: "6px", display: "inline-block" }}>
+                {item.label}
+              </span>
+              <h3 style={{ color: "#fff", fontSize: "1.1rem", margin: "6px 0 10px" }}>{item.title}</h3>
+              <p style={{ color: "#b9c9de", lineHeight: 1.8, fontSize: "0.92rem" }}>{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
     </div>
   );
 }
