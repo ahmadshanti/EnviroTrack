@@ -23,6 +23,8 @@ function Navbar() {
         <NavLink to="/reports">Reports</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/tips">Tips</NavLink>
+        <NavLink to="/vision">Vision</NavLink>
+
       </div>
 
    <div className="nav-user">

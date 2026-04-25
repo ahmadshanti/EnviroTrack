@@ -8,6 +8,8 @@ import History from "./pages/History";
 import Reports from "./pages/Reports";
 import Login from "./pages/Login";
 import Tips from "./pages/Tips";
+import Vision from "./pages/Vision";
+
 import './App.css';
 
 function App() {
@@ -47,6 +49,7 @@ function App() {
         <Route path="/history" element={<History readings={readings} />} />
         <Route path="/reports" element={<Reports readings={readings} />} />
         <Route path="/tips" element={<Tips />} />
+        <Route path="/vision" element={<Vision />} />
 
       </Routes>
     </BrowserRouter>
